@@ -1,0 +1,3056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Beyby's Sweet Seventeen ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#fff8fc;
+    color:#633d50;
+    overflow-x:hidden;
+}
+
+button,
+a{
+    font-family:inherit;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* =========================================================
+   COLOR
+========================================================= */
+
+:root{
+    --pink:#e96b9e;
+    --deep-pink:#a83f70;
+    --soft-pink:#ffe1ed;
+    --light-pink:#fff3f8;
+    --baby-blue:#bde8f5;
+    --ocean-blue:#4d9fca;
+    --white:#ffffff;
+    --text:#633d50;
+    --muted:#987384;
+}
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+.container{
+    width:min(1100px,90%);
+    margin:auto;
+}
+
+section{
+    padding:110px 0;
+    position:relative;
+}
+
+.section-label{
+    text-align:center;
+    font-size:10px;
+    letter-spacing:4px;
+    font-weight:700;
+    color:var(--pink);
+    margin-bottom:15px;
+}
+
+.section-title{
+    text-align:center;
+    font-family:'DM Serif Display',serif;
+    font-size:clamp(40px,7vw,70px);
+    color:#83355a;
+    margin-bottom:55px;
+}
+
+.section-title span{
+    color:var(--pink);
+    font-family:'Caveat',cursive;
+}
+
+
+/* =========================================================
+   OPENING SCREEN
+========================================================= */
+
+.opening{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(255,255,255,.9),transparent 25%),
+        linear-gradient(135deg,#ffdce9,#fff7fb,#cceef7);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    transition:1s ease;
+}
+
+.opening.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.opening-content{
+    width:min(500px,90%);
+}
+
+.opening-small{
+    font-size:10px;
+    letter-spacing:5px;
+    color:#a54870;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.opening h1{
+    font-family:'DM Serif Display',serif;
+    font-size:clamp(50px,12vw,100px);
+    color:#8b365e;
+    line-height:.9;
+}
+
+.opening-script{
+    font-family:'Caveat',cursive;
+    color:#e4679c;
+    font-size:38px;
+    margin:10px 0 35px;
+}
+
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+.envelope{
+    width:220px;
+    height:150px;
+    margin:0 auto 35px;
+    position:relative;
+    cursor:pointer;
+    animation:floatEnvelope 3s ease-in-out infinite;
+}
+
+.envelope-body{
+    position:absolute;
+    inset:0;
+    background:#fff;
+    border:2px solid #ed9fc0;
+    border-radius:12px;
+    box-shadow:0 20px 50px rgba(142,55,99,.2);
+    overflow:hidden;
+}
+
+.envelope-body:before{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    border-left:110px solid transparent;
+    border-right:110px solid transparent;
+    border-bottom:80px solid #ffe2ed;
+}
+
+.envelope-body:after{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    border-left:110px solid transparent;
+    border-right:110px solid transparent;
+    border-top:80px solid #f6bfd4;
+}
+
+.envelope-letter{
+    position:absolute;
+    width:145px;
+    height:105px;
+    background:white;
+    left:37px;
+    top:-20px;
+    z-index:3;
+    border-radius:5px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.8s ease;
+}
+
+.envelope:hover .envelope-letter{
+    transform:translateY(-25px);
+}
+
+.letter-text{
+    font-family:'Caveat',cursive;
+    color:#b34878;
+    font-size:22px;
+    padding-top:30px;
+}
+
+.open-btn{
+    border:none;
+    background:linear-gradient(135deg,#e86a9d,#ad4774);
+    color:white;
+    padding:16px 35px;
+    border-radius:50px;
+    font-size:11px;
+    letter-spacing:2px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 12px 30px rgba(175,65,111,.25);
+    transition:.3s;
+}
+
+.open-btn:hover{
+    transform:translateY(-4px) scale(1.03);
+}
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+.music-btn{
+    position:fixed;
+    right:20px;
+    top:20px;
+    width:48px;
+    height:48px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    color:#a63e6c;
+    box-shadow:0 8px 25px rgba(100,40,70,.15);
+    z-index:1000;
+    cursor:pointer;
+    font-size:18px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    background:
+        radial-gradient(circle at 10% 20%,rgba(255,255,255,.8),transparent 20%),
+        radial-gradient(circle at 90% 80%,rgba(189,232,245,.5),transparent 25%),
+        linear-gradient(135deg,#ffe1ed,#fff8fc 45%,#d9f4fa);
+
+    overflow:hidden;
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    background:rgba(255,255,255,.35);
+    top:-300px;
+    right:-150px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero-small{
+    font-size:10px;
+    letter-spacing:5px;
+    color:#9b5070;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-family:'DM Serif Display',serif;
+    color:#83355a;
+    font-size:clamp(50px,10vw,110px);
+    line-height:.85;
+}
+
+.hero-script{
+    font-family:'Caveat',cursive;
+    color:#e5669b;
+    font-size:clamp(35px,6vw,65px);
+    margin-top:15px;
+}
+
+.big-number{
+    font-family:'DM Serif Display',serif;
+    font-size:clamp(130px,25vw,280px);
+    line-height:.75;
+    color:transparent;
+    -webkit-text-stroke:2px #e56d9d;
+    opacity:.65;
+    margin:25px 0;
+}
+
+.hero-date{
+    font-size:11px;
+    letter-spacing:4px;
+    font-weight:700;
+    color:#7c5364;
+}
+
+.hero-decoration{
+    margin-top:25px;
+    font-size:28px;
+    letter-spacing:12px;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro{
+    background:#fff8fc;
+    text-align:center;
+}
+
+.intro-card{
+    max-width:750px;
+    margin:auto;
+    padding:60px 30px;
+    background:white;
+    border-radius:45px;
+    border:1px solid #f0c1d4;
+    box-shadow:0 25px 70px rgba(130,55,90,.08);
+}
+
+.intro-card .emoji{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.intro-card h2{
+    font-family:'DM Serif Display',serif;
+    font-size:42px;
+    color:#87365d;
+    margin-bottom:20px;
+}
+
+.intro-card p{
+    font-size:12px;
+    line-height:2;
+    color:#896576;
+}
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+.countdown-section{
+    background:linear-gradient(180deg,#fff8fc,#ffe8f1);
+}
+
+.countdown{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    max-width:800px;
+    margin:auto;
+}
+
+.count-box{
+    background:rgba(255,255,255,.85);
+    border:1px solid #edbdd1;
+    border-radius:30px;
+    padding:30px 10px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(140,50,90,.07);
+}
+
+.count-box strong{
+    display:block;
+    font-family:'DM Serif Display',serif;
+    font-size:45px;
+    color:#a03f6d;
+}
+
+.count-box span{
+    font-size:9px;
+    letter-spacing:3px;
+    color:#aa758c;
+}
+
+
+/* =========================================================
+   EVENT DETAILS
+========================================================= */
+
+.details{
+    background:#fff8fc;
+}
+
+.detail-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.detail-card{
+    text-align:center;
+    background:white;
+    padding:45px 25px;
+    border-radius:35px;
+    border:1px solid #edbfd1;
+    transition:.4s;
+}
+
+.detail-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 50px rgba(130,50,90,.1);
+}
+
+.detail-icon{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.detail-card h3{
+    font-family:'DM Serif Display',serif;
+    color:#87365d;
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.detail-card p{
+    font-size:11px;
+    line-height:1.9;
+    color:#896576;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline-section{
+    background:linear-gradient(180deg,#fff8fc,#eefaff);
+}
+
+.timeline{
+    max-width:750px;
+    margin:auto;
+    position:relative;
+}
+
+.timeline:before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:2px;
+    background:linear-gradient(#ef9fbe,#9ed7e9);
+    transform:translateX(-50%);
+}
+
+.timeline-item{
+    width:50%;
+    padding:20px 40px;
+    position:relative;
+}
+
+.timeline-item:nth-child(odd){
+    text-align:right;
+}
+
+.timeline-item:nth-child(even){
+    margin-left:50%;
+}
+
+.timeline-dot{
+    position:absolute;
+    width:17px;
+    height:17px;
+    border-radius:50%;
+    background:#e76b9c;
+    border:4px solid white;
+    box-shadow:0 0 0 2px #e9abc2;
+    top:35px;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot{
+    right:-9px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+    left:-9px;
+}
+
+.timeline-time{
+    font-family:'Caveat',cursive;
+    font-size:28px;
+    color:#e2689b;
+}
+
+.timeline-card{
+    margin-top:5px;
+}
+
+.timeline-card h3{
+    font-family:'DM Serif Display',serif;
+    color:#87365d;
+    font-size:25px;
+}
+
+.timeline-card p{
+    font-size:10px;
+    line-height:1.7;
+    color:#8c6877;
+}
+
+
+/* =========================================================
+   DRESS CODE
+========================================================= */
+
+.dress-section{
+    background:#fff8fc;
+    overflow:hidden;
+}
+
+.dress-intro{
+    text-align:center;
+    max-width:600px;
+    margin:-25px auto 50px;
+    font-size:12px;
+    line-height:2;
+    color:#8d6b7a;
+}
+
+.dress-display{
+    max-width:950px;
+    margin:auto;
+    padding:50px 30px;
+    border-radius:50px;
+
+    background:
+        radial-gradient(circle at 10% 10%,rgba(189,232,245,.5),transparent 25%),
+        radial-gradient(circle at 90% 90%,rgba(255,210,228,.5),transparent 25%),
+        white;
+
+    border:1px solid #eab8cc;
+    box-shadow:0 30px 70px rgba(100,50,80,.1);
+}
+
+.outfit-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.outfit{
+    text-align:center;
+    min-height:300px;
+    padding:25px 15px;
+    border-radius:35px;
+    background:rgba(255,255,255,.8);
+    border:1px solid #e8d3dc;
+    position:relative;
+}
+
+.outfit h3{
+    font-family:'Caveat',cursive;
+    font-size:31px;
+    color:#9e3e6c;
+    margin-top:15px;
+}
+
+.outfit p{
+    font-size:9px;
+    color:#977282;
+    line-height:1.7;
+}
+
+.hanger{
+    width:100px;
+    height:70px;
+    margin:10px auto;
+    position:relative;
+}
+
+.hanger:before{
+    content:"";
+    position:absolute;
+    width:45px;
+    height:45px;
+    border:5px solid #9e9e9e;
+    border-right-color:transparent;
+    border-bottom-color:transparent;
+    border-radius:50%;
+    transform:rotate(45deg);
+    left:28px;
+    top:-10px;
+}
+
+.hanger:after{
+    content:"";
+    position:absolute;
+    left:5px;
+    right:5px;
+    bottom:5px;
+    height:4px;
+    background:#aaa;
+    transform:rotate(-3deg);
+}
+
+.dress-shape{
+    width:90px;
+    height:120px;
+    margin:10px auto;
+    position:relative;
+}
+
+.dress-shape:before{
+    content:"";
+    position:absolute;
+    top:15px;
+    left:35px;
+    width:20px;
+    height:35px;
+    border-radius:50%;
+    background:#bde8f5;
+}
+
+.dress-shape:after{
+    content:"";
+    position:absolute;
+    top:40px;
+    left:12px;
+    width:65px;
+    height:70px;
+    background:#bde8f5;
+    clip-path:polygon(30% 0,70% 0,100% 100%,0 100%);
+    border-radius:8px;
+}
+
+.ocean .dress-shape:before{
+    background:#4d9fca;
+}
+
+.ocean .dress-shape:after{
+    background:#4d9fca;
+}
+
+.white .dress-shape:before{
+    background:white;
+    border:1px solid #ddd;
+}
+
+.white .dress-shape:after{
+    background:white;
+    border:1px solid #ddd;
+}
+
+.shoes{
+    font-size:65px;
+    margin:40px auto 15px;
+}
+
+.color-palette{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:50px;
+}
+
+.color{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    border:4px solid white;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.color:nth-child(1){
+    background:#bde8f5;
+}
+
+.color:nth-child(2){
+    background:#4d9fca;
+}
+
+.color:nth-child(3){
+    background:#ffffff;
+    border:1px solid #ddd;
+}
+
+.palette-label{
+    text-align:center;
+    margin-top:18px;
+    font-size:9px;
+    letter-spacing:2px;
+    color:#8e6879;
+}
+
+
+/* =========================================================
+   LITTLE MOMENTS / GALLERY
+========================================================= */
+
+.gallery-section{
+    background:linear-gradient(180deg,#eefaff,#fff8fc);
+}
+
+.gallery{
+
+    display:grid;
+
+    /* FOTO 2 KOLOM */
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+
+    max-width:850px;
+
+    margin:auto;
+}
+
+
+/* KOTAK FOTO 1:1 */
+
+.gallery-item{
+    position:relative;
+    width:100%;
+    aspect-ratio:1 / 1;
+    overflow:hidden;
+    border-radius:28px;
+    border:5px solid white;
+    background:#f8f8f8;
+    box-shadow:0 15px 35px rgba(100,50,80,.12);
+    transition:.4s ease;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+}
+
+
+/* HOVER FOTO */
+
+.gallery-item:hover{
+    transform:translateY(-5px);
+    box-shadow:
+        0 25px 50px rgba(100,50,80,.18);
+}
+
+.gallery-item:hover img{
+    transform:scale(1.07);
+}
+
+
+/* CAPTION */
+
+.gallery-caption{
+
+    position:absolute;
+
+    left:15px;
+    bottom:15px;
+
+    background:rgba(255,255,255,.9);
+
+    padding:8px 15px;
+
+    border-radius:30px;
+
+    font-family:'Caveat',cursive;
+
+    font-size:19px;
+
+    color:#9e3e6c;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.08);
+}
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+.letter-section{
+    background:#fff8fc;
+}
+
+.letter{
+    max-width:800px;
+    margin:auto;
+    padding:70px 45px;
+    background:#fffdf9;
+    border-radius:5px;
+    box-shadow:0 25px 60px rgba(80,50,50,.12);
+    border:1px solid #eadbcf;
+    position:relative;
+}
+
+.letter:before{
+    content:"♡";
+    position:absolute;
+    top:20px;
+    right:25px;
+    font-size:35px;
+    color:#e67aa5;
+}
+
+.letter h3{
+    font-family:'Caveat',cursive;
+    font-size:45px;
+    color:#a3446e;
+    margin-bottom:25px;
+}
+
+.letter p{
+    font-family:'Caveat',cursive;
+    font-size:25px;
+    line-height:1.6;
+    color:#795565;
+}
+
+
+/* =========================================================
+   CALENDAR
+========================================================= */
+
+.calendar-section{
+    background:
+        radial-gradient(circle at 10% 20%,rgba(255,190,215,.35),transparent 25%),
+        radial-gradient(circle at 90% 80%,rgba(145,217,240,.25),transparent 25%),
+        #fff8fc;
+}
+
+.calendar-box{
+    max-width:850px;
+    margin:auto;
+    padding:35px;
+    border-radius:45px;
+    background:rgba(255,255,255,.88);
+    border:1px solid #ebb2ca;
+    box-shadow:0 30px 70px rgba(150,55,100,.13);
+    position:relative;
+}
+
+.calendar-box:before{
+    content:"🎀";
+    position:absolute;
+    right:30px;
+    top:25px;
+    font-size:30px;
+}
+
+.calendar-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:25px;
+}
+
+.calendar-month{
+    text-align:center;
+}
+
+.calendar-month h3{
+    font-family:'DM Serif Display',serif;
+    font-size:42px;
+    color:#87365d;
+}
+
+.calendar-month span{
+    font-family:'Caveat',cursive;
+    color:#e4679c;
+    font-size:27px;
+}
+
+.calendar-arrow{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    border:1px solid #edb0c9;
+    background:#fff4f8;
+    color:#a44370;
+    font-size:18px;
+}
+
+.calendar-days{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:10px;
+    text-align:center;
+}
+
+.day-name{
+    font-size:9px;
+    letter-spacing:1px;
+    color:#b15d81;
+    font-weight:700;
+    padding-bottom:8px;
+}
+
+.day{
+    aspect-ratio:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    font-size:12px;
+    color:#765264;
+    position:relative;
+    transition:.3s;
+}
+
+.day:hover{
+    background:#ffe0ed;
+    transform:scale(1.1);
+}
+
+.day.empty{
+    visibility:hidden;
+}
+
+.day.birthday{
+    background:linear-gradient(135deg,#ed71a5,#b44978);
+    color:white;
+    font-weight:700;
+    box-shadow:0 8px 20px rgba(172,57,104,.3);
+    transform:scale(1.12);
+}
+
+.day.birthday:after{
+    content:"🎂";
+    position:absolute;
+    font-size:18px;
+    bottom:-20px;
+    animation:cakeFloat 2s ease-in-out infinite;
+}
+
+.calendar-note{
+    margin-top:40px;
+    padding:18px;
+    text-align:center;
+    border-radius:25px;
+    background:linear-gradient(135deg,#fff0f6,#edfaff);
+    border:1px dashed #df91b3;
+}
+
+.calendar-note strong{
+    display:block;
+    font-family:'Caveat',cursive;
+    font-size:30px;
+    color:#9b3d6a;
+}
+
+.calendar-note span{
+    font-size:9px;
+    letter-spacing:2px;
+    color:#a36b82;
+}
+
+
+/* =========================================================
+   GIFT
+========================================================= */
+
+.gift-section{
+    padding-top:80px;
+    padding-bottom:100px;
+    background:linear-gradient(180deg,#fff8fc,#ffe5f0,#fff8fc);
+}
+
+.gift-card{
+    max-width:900px;
+    margin:auto;
+    position:relative;
+    padding:80px 35px;
+    text-align:center;
+    border-radius:55px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.96),
+            rgba(255,229,240,.95),
+            rgba(232,248,253,.95)
+        );
+
+    border:1px solid #e8aec7;
+
+    box-shadow:
+        0 35px 90px rgba(145,55,100,.15);
+
+    overflow:hidden;
+}
+
+.gift-card:before{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    background:rgba(255,190,215,.3);
+    top:-130px;
+    left:-100px;
+}
+
+.gift-card:after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:rgba(145,217,240,.25);
+    bottom:-110px;
+    right:-80px;
+}
+
+.gift-decoration{
+    font-size:60px;
+    position:relative;
+    z-index:2;
+    animation:floating 3s ease-in-out infinite;
+}
+
+.gift-title{
+    position:relative;
+    z-index:2;
+    margin:20px 0 8px;
+    font-family:'DM Serif Display',serif;
+    font-size:clamp(38px,7vw,65px);
+    color:#83355a;
+}
+
+.gift-title span{
+    display:block;
+    font-family:'Caveat',cursive;
+    font-size:.75em;
+    color:#e2669b;
+}
+
+.gift-line{
+    width:80px;
+    height:2px;
+    margin:25px auto;
+    background:linear-gradient(90deg,transparent,#e36b9d,transparent);
+}
+
+.gift-text{
+    position:relative;
+    z-index:2;
+    max-width:570px;
+    margin:auto;
+    font-size:12px;
+    line-height:2.1;
+    color:#765264;
+}
+
+.gift-quote{
+    position:relative;
+    z-index:2;
+    margin-top:30px;
+    font-family:'Caveat',cursive;
+    font-size:32px;
+    color:#a23e6d;
+}
+
+.gift-hearts{
+    position:relative;
+    z-index:2;
+    margin-top:25px;
+    font-size:25px;
+    letter-spacing:10px;
+}
+
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+.location-section{
+    background:#fff8fc;
+    text-align:center;
+}
+
+.location-card{
+    max-width:800px;
+    margin:auto;
+    padding:60px 30px;
+    border-radius:45px;
+    background:white;
+    border:1px solid #e9bdcf;
+    box-shadow:0 25px 60px rgba(120,50,85,.1);
+}
+
+.location-icon{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.location-card h3{
+    font-family:'DM Serif Display',serif;
+    font-size:38px;
+    color:#83355a;
+}
+
+.location-card p{
+    font-size:11px;
+    line-height:2;
+    color:#8b6878;
+    margin:15px auto 25px;
+    max-width:550px;
+}
+
+.map-button{
+    display:inline-block;
+    padding:15px 25px;
+    border-radius:50px;
+    background:linear-gradient(135deg,#e96c9e,#ad4775);
+    color:white;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:2px;
+    box-shadow:0 10px 25px rgba(170,60,110,.25);
+    transition:.3s;
+}
+
+.map-button:hover{
+    transform:translateY(-4px);
+}
+
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+.rsvp-section{
+    background:linear-gradient(135deg,#ffe0ed,#eefaff);
+}
+
+.rsvp-card{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    border-radius:50px;
+    padding:60px 30px;
+    text-align:center;
+    border:1px solid #e9bbce;
+    box-shadow:0 30px 70px rgba(100,50,80,.1);
+}
+
+.rsvp-card h2{
+    font-family:'DM Serif Display',serif;
+    font-size:45px;
+    color:#84365b;
+}
+
+.rsvp-card p{
+    margin:15px auto 30px;
+    font-size:11px;
+    line-height:1.9;
+    color:#8b6878;
+    max-width:500px;
+}
+
+.rsvp-input{
+    width:min(400px,100%);
+    padding:16px 20px;
+    border-radius:50px;
+    border:1px solid #e5b7ca;
+    outline:none;
+    text-align:center;
+    font-size:12px;
+    margin-bottom:15px;
+}
+
+.rsvp-input:focus{
+    border-color:#df699a;
+}
+
+.rsvp-button{
+    border:none;
+    padding:16px 30px;
+    border-radius:50px;
+    background:#25d366;
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+    font-size:10px;
+    letter-spacing:2px;
+    box-shadow:0 10px 25px rgba(37,211,102,.2);
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final{
+    min-height:80vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    background:
+        radial-gradient(circle at 20% 20%,rgba(255,255,255,.7),transparent 25%),
+        linear-gradient(135deg,#ffe1ed,#fff7fb,#d5f2f8);
+}
+
+.final h2{
+    font-family:'DM Serif Display',serif;
+    font-size:clamp(55px,10vw,110px);
+    color:#83355a;
+    line-height:.9;
+}
+
+.final-script{
+    font-family:'Caveat',cursive;
+    font-size:45px;
+    color:#e16699;
+    margin:20px 0;
+}
+
+.final p{
+    font-size:10px;
+    letter-spacing:3px;
+    color:#93687a;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    text-align:center;
+    padding:25px;
+    background:#83355a;
+    color:#fff;
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+
+/* =========================================================
+   FLOATING HEART
+========================================================= */
+
+.floating-heart{
+    position:fixed;
+    pointer-events:none;
+    z-index:999;
+    animation:heartFloat 5s linear forwards;
+    opacity:.7;
+}
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+.confetti{
+    position:fixed;
+    width:8px;
+    height:12px;
+    z-index:9998;
+    pointer-events:none;
+    animation:confettiFall 3s linear forwards;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes floatEnvelope{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+}
+
+@keyframes floating{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+}
+
+@keyframes heartFloat{
+
+    0%{
+        transform:translateY(0) scale(.8) rotate(0deg);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:translateY(-100vh) scale(1.4) rotate(30deg);
+        opacity:0;
+    }
+
+}
+
+@keyframes confettiFall{
+
+    0%{
+        transform:translateY(-20px) rotate(0);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(100vh) rotate(720deg);
+        opacity:0;
+    }
+
+}
+
+@keyframes cakeFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-5px);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:700px){
+
+    section{
+        padding:80px 0;
+    }
+
+
+    /* COUNTDOWN */
+
+    .countdown{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+
+    /* DETAILS */
+
+    .detail-grid{
+        grid-template-columns:1fr;
+    }
+
+
+    /* DRESS */
+
+    .outfit-grid{
+        grid-template-columns:1fr;
+    }
+
+
+    /* TIMELINE */
+
+    .timeline:before{
+        left:12px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even){
+        width:100%;
+        margin-left:0;
+        padding-left:45px;
+        padding-right:10px;
+        text-align:left;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot{
+        left:4px;
+        right:auto;
+    }
+
+
+    /* GALLERY */
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .gallery-item{
+        aspect-ratio:1 / 1;
+        border-radius:18px;
+        border-width:3px;
+    }
+
+    .gallery-caption{
+        left:8px;
+        bottom:8px;
+        padding:5px 9px;
+        font-size:14px;
+    }
+
+
+    /* CALENDAR */
+
+    .calendar-box{
+        padding:25px 15px;
+    }
+
+    .calendar-days{
+        gap:4px;
+    }
+
+    .day{
+        font-size:10px;
+    }
+
+    .day-name{
+        font-size:7px;
+    }
+
+
+    /* LETTER */
+
+    .letter{
+        padding:45px 25px;
+    }
+
+    .letter p{
+        font-size:21px;
+    }
+
+
+    /* GIFT */
+
+    .gift-card{
+        padding:60px 25px;
+    }
+
+    .gift-quote{
+        font-size:26px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     OPENING
+========================================================= -->
+
+<div class="opening" id="opening">
+
+    <div class="opening-content">
+
+        <div class="opening-small">
+            YOU ARE INVITED TO
+        </div>
+
+        <h1>
+            Beyby's
+        </h1>
+
+        <div class="opening-script">
+            Sweet Seventeen ♡
+        </div>
+
+
+        <div class="envelope" onclick="openInvitation()">
+
+            <div class="envelope-letter">
+
+                <div class="letter-text">
+                    You're Invited ♡
+                </div>
+
+            </div>
+
+            <div class="envelope-body"></div>
+
+        </div>
+
+
+        <button
+            class="open-btn"
+            onclick="openInvitation()"
+        >
+            💌 OPEN INVITATION
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MUSIC
+========================================================= -->
+
+<audio id="audio" loop>
+    <source
+        src="birthday-song.mp3"
+        type="audio/mpeg"
+    >
+</audio>
+
+<button
+    class="music-btn"
+    id="musicBtn"
+    onclick="toggleMusic()"
+>
+    🎵
+</button>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content reveal">
+
+        <div class="hero-small">
+            SAVE THE DATE
+        </div>
+
+        <h1>
+            Beyby's
+        </h1>
+
+        <div class="hero-script">
+            Sweet Seventeen
+        </div>
+
+        <div class="big-number">
+            17
+        </div>
+
+        <div class="hero-date">
+            SATURDAY • OCTOBER 31 • 2026
+        </div>
+
+        <div class="hero-decoration">
+            ♡ ✦ 🎀 ✦ ♡
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INTRO
+========================================================= -->
+
+<section class="intro">
+
+    <div class="container reveal">
+
+        <div class="intro-card">
+
+            <div class="emoji">
+                🎂
+            </div>
+
+            <h2>
+                A Little Celebration
+            </h2>
+
+            <p>
+
+                Seventeen is such a beautiful milestone,
+                and I would love to celebrate this special
+                moment together with the people who make
+                life even more beautiful.
+
+                <br><br>
+
+                Come celebrate, laugh, take pictures,
+                make memories and have lots of fun with me! ♡
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     COUNTDOWN
+========================================================= -->
+
+<section class="countdown-section">
+
+    <div class="container reveal">
+
+        <div class="section-label">
+            ⏳ COUNTING DOWN
+        </div>
+
+        <h2 class="section-title">
+            Until The <span>Big Day</span>
+        </h2>
+
+
+        <div class="countdown">
+
+            <div class="count-box">
+
+                <strong id="days">
+                    00
+                </strong>
+
+                <span>
+                    DAYS
+                </span>
+
+            </div>
+
+
+            <div class="count-box">
+
+                <strong id="hours">
+                    00
+                </strong>
+
+                <span>
+                    HOURS
+                </span>
+
+            </div>
+
+
+            <div class="count-box">
+
+                <strong id="minutes">
+                    00
+                </strong>
+
+                <span>
+                    MINUTES
+                </span>
+
+            </div>
+
+
+            <div class="count-box">
+
+                <strong id="seconds">
+                    00
+                </strong>
+
+                <span>
+                    SECONDS
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     EVENT DETAILS
+========================================================= -->
+
+<section class="details">
+
+    <div class="container reveal">
+
+        <div class="section-label">
+            ✦ THE DETAILS
+        </div>
+
+        <h2 class="section-title">
+            When & <span>Where</span>
+        </h2>
+
+
+        <div class="detail-grid">
+
+
+            <div class="detail-card">
+
+                <div class="detail-icon">
+                    📅
+                </div>
+
+                <h3>
+                    Date
+                </h3>
+
+                <p>
+                    Saturday<br>
+                    October 31, 2026
+                </p>
+
+            </div>
+
+
+            <div class="detail-card">
+
+                <div class="detail-icon">
+                    🕖
+                </div>
+
+                <h3>
+                    Time
+                </h3>
+
+                <p>
+                    7:00 PM WIB<br>
+                    Please arrive on time ♡
+                </p>
+
+            </div>
+
+
+            <div class="detail-card">
+
+                <div class="detail-icon">
+                    📍
+                </div>
+
+                <h3>
+                    Venue
+                </h3>
+
+                <p>
+                    Pondok Santap 3 BY<br>
+                    Metro Pusat, Lampung
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TIMELINE
+========================================================= -->
+
+<section class="timeline-section">
+
+    <div class="container reveal">
+
+        <div class="section-label">
+            🕰️ THE EVENING
+        </div>
+
+        <h2 class="section-title">
+            Party <span>Timeline</span>
+        </h2>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-time">
+                    07:00 PM
+                </div>
+
+                <div class="timeline-card">
+
+                    <h3>
+                        Guest Arrival
+                    </h3>
+
+                    <p>
+                        Welcome, smiles & cute pictures!
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-time">
+                    07:30 PM
+                </div>
+
+                <div class="timeline-card">
+
+                    <h3>
+                        Birthday Celebration
+                    </h3>
+
+                    <p>
+                        Cake, candles and a very special moment.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-time">
+                    08:00 PM
+                </div>
+
+                <div class="timeline-card">
+
+                    <h3>
+                        Dinner & Fun
+                    </h3>
+
+                    <p>
+                        Good food, laughter and happy conversations.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-time">
+                    08:45 PM
+                </div>
+
+                <div class="timeline-card">
+
+                    <h3>
+                        Games & Photos
+                    </h3>
+
+                    <p>
+                        Let's create some unforgettable memories!
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-time">
+                    09:30 PM
+                </div>
+
+                <div class="timeline-card">
+
+                    <h3>
+                        Closing
+                    </h3>
+
+                    <p>
+                        Thank you for making this night special ♡
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DRESS CODE
+========================================================= -->
+
+<section class="dress-section">
+
+    <div class="container reveal">
+
+        <div class="section-label">
+            👗 DRESS CODE
+        </div>
+
+        <h2 class="section-title">
+            Dress To <span>Celebrate</span>
+        </h2>
+
+        <p class="dress-intro">
+
+            Come in your cutest outfit and match the birthday
+            celebration with these soft and elegant colors.
+
+        </p>
+
+
+        <div class="dress-display">
+
+
+            <div class="outfit-grid">
+
+
+                <div class="outfit">
+
+                    <div class="hanger"></div>
+
+                    <div class="dress-shape"></div>
+
+                    <h3>
+                        Baby Blue
+                    </h3>
+
+                    <p>
+                        Soft, sweet & dreamy
+                    </p>
+
+                </div>
+
+
+                <div class="outfit ocean">
+
+                    <div class="hanger"></div>
+
+                    <div class="dress-shape"></div>
+
+                    <h3>
+                        Ocean Blue
+                    </h3>
+
+                    <p>
+                        Fresh, elegant & vibrant
+                    </p>
+
+                </div>
+
+
+                <div class="outfit white">
+
+                    <div class="hanger"></div>
+
+                    <div class="dress-shape"></div>
+
+                    <h3>
+                        White
+                    </h3>
+
+                    <p>
+                        Clean, classic & timeless
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="color-palette">
+
+                <div class="color"></div>
+                <div class="color"></div>
+                <div class="color"></div>
+
+            </div>
+
+
+            <div class="palette-label">
+                BABY BLUE • OCEAN BLUE • WHITE
+            </div>
+
+
+            <div class="shoes">
+                👠
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     LITTLE MOMENTS
+========================================================= -->
+
+<section class="gallery-section">
+
+    <div class="container reveal">
+
+        <div class="section-label">
+            📸 MEMORY LANE
+        </div>
+
+        <h2 class="section-title">
+            Little <span>Moments</span>
+        </h2>
+
+
+        <div class="gallery">
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="foto1.jpeg"
+                    alt="Beyby memory"
+                >
+
+                <div class="gallery-caption">
+                    A little memory ♡
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="foto2.jpeg"
+                    alt="Beyby memory"
+                >
+
+                <div class="gallery-caption">
+                    Happy moments ✦
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="foto3.jpeg"
+                    alt="Beyby memory"
+                >
+
+                <div class="gallery-caption">
+                    Sweet memories 🎀
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="foto4.jpeg"
+                    alt="Beyby memory"
+                >
+
+                <div class="gallery-caption">
+                    Seventeen ♡
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     LETTER
+========================================================= -->
+
+<section class="letter-section">
+
+    <div class="container reveal">
+
+        <div class="section-label">
+            💌 A LITTLE NOTE
+        </div>
+
+        <h2 class="section-title">
+            From <span>My Heart</span>
+        </h2>
+
+
+        <div class="letter">
+
+            <h3>
+                Dear You,
+            </h3>
+
+            <p>
+
+                Thank you for being part of my life
+                and for creating so many beautiful memories
+                with me.
+
+                <br><br>
+
+                As I turn seventeen, I hope this new chapter
+                brings more happiness, laughter, adventures,
+                dreams and beautiful surprises.
+
+                <br><br>
+
+                And I would be really happy if you could be
+                there to celebrate this special day with me.
+
+                <br><br>
+
+                See you at the party! ♡
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CALENDAR
+========================================================= -->
+
+<section class="calendar-section">
+
+    <div class="container reveal">
+
+        <div class="section-label">
+            📅 MARK YOUR CALENDAR
+        </div>
+
+        <h2 class="section-title">
+            Save The <span>Date</span>
+        </h2>
+
+
+        <div class="calendar-box">
+
+
+            <div class="calendar-header">
+
+                <button class="calendar-arrow">
+                    ‹
+                </button>
+
+
+                <div class="calendar-month">
+
+                    <h3>
+                        October
+                    </h3>
+
+                    <span>
+                        2026
+                    </span>
+
+                </div>
+
+
+                <button class="calendar-arrow">
+                    ›
+                </button>
+
+            </div>
+
+
+            <div class="calendar-days">
+
+                <div class="day-name">SUN</div>
+                <div class="day-name">MON</div>
+                <div class="day-name">TUE</div>
+                <div class="day-name">WED</div>
+                <div class="day-name">THU</div>
+                <div class="day-name">FRI</div>
+                <div class="day-name">SAT</div>
+
+
+                <div class="day empty"></div>
+                <div class="day empty"></div>
+                <div class="day empty"></div>
+                <div class="day empty"></div>
+
+
+                <div class="day">1</div>
+                <div class="day">2</div>
+                <div class="day">3</div>
+
+
+                <div class="day">4</div>
+                <div class="day">5</div>
+                <div class="day">6</div>
+                <div class="day">7</div>
+                <div class="day">8</div>
+                <div class="day">9</div>
+                <div class="day">10</div>
+
+
+                <div class="day">11</div>
+                <div class="day">12</div>
+                <div class="day">13</div>
+                <div class="day">14</div>
+                <div class="day">15</div>
+                <div class="day">16</div>
+                <div class="day">17</div>
+
+
+                <div class="day">18</div>
+                <div class="day">19</div>
+                <div class="day">20</div>
+                <div class="day">21</div>
+                <div class="day">22</div>
+                <div class="day">23</div>
+                <div class="day">24</div>
+
+
+                <div class="day">25</div>
+                <div class="day">26</div>
+                <div class="day">27</div>
+                <div class="day">28</div>
+                <div class="day">29</div>
+                <div class="day">30</div>
+
+
+                <div class="day birthday">
+                    31
+                </div>
+
+            </div>
+
+
+            <div class="calendar-note">
+
+                <strong>
+                    October 31st, 2026
+                </strong>
+
+                <span>
+                    ✦ THE DAY WE CELEBRATE BEYBY'S SWEET SEVENTEEN ✦
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     YOUR PRESENCE IS THE GIFT
+========================================================= -->
+
+<section class="gift-section">
+
+    <div class="container reveal">
+
+        <div class="gift-card">
+
+            <div class="gift-decoration">
+                🎁
+            </div>
+
+
+            <h2 class="gift-title">
+
+                Your Presence
+
+                <span>
+                    Is The Gift
+                </span>
+
+            </h2>
+
+
+            <div class="gift-line"></div>
+
+
+            <p class="gift-text">
+
+                No presents are necessary.
+
+                <br><br>
+
+                Having you there to celebrate this special
+                day with me is already more than enough.
+
+                <br><br>
+
+                Your smiles, your laughter, and the memories
+                we create together will be the sweetest gift
+                I could ever receive.
+
+            </p>
+
+
+            <div class="gift-quote">
+
+                “The best things in life are the people we share them with.” ♡
+
+            </div>
+
+
+            <div class="gift-hearts">
+                ♡ ✦ ♡ ✦ ♡
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     LOCATION
+========================================================= -->
+
+<section class="location-section">
+
+    <div class="container reveal">
+
+        <div class="section-label">
+            📍 FIND US
+        </div>
+
+        <h2 class="section-title">
+            See You <span>There</span>
+        </h2>
+
+
+        <div class="location-card">
+
+            <div class="location-icon">
+                📍
+            </div>
+
+
+            <h3>
+                Pondok Santap 3 BY
+            </h3>
+
+
+            <p>
+
+                Jl. Kedondong, Yosomulyo,
+                Metro Pusat, Lampung.
+
+                <br><br>
+
+                Saturday, October 31, 2026
+
+                <br>
+
+                7:00 PM WIB
+
+            </p>
+
+
+            <a
+                href="https://www.google.com/maps/place/5%C2%B006'09.0%22S+105%C2%B019'46.1%22E/@-5.1044563,105.3209328,15z/data=!4m4!3m3!8m2!3d-5.1024898!4d105.3294733?hl=id&entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                class="map-button"
+            >
+                🗺️ OPEN GOOGLE MAPS
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     RSVP
+========================================================= -->
+
+<section class="rsvp-section">
+
+    <div class="container reveal">
+
+        <div class="rsvp-card">
+
+            <div class="section-label">
+                💌 RSVP
+            </div>
+
+
+            <h2>
+                Will You Join Me?
+            </h2>
+
+
+            <p>
+
+                Your presence would make this celebration
+                even more special. Please let me know
+                if you can make it! ♡
+
+            </p>
+
+
+            <input
+                type="text"
+                id="guestName"
+                class="rsvp-input"
+                placeholder="Enter your name"
+            >
+
+
+            <br>
+
+
+            <button
+                class="rsvp-button"
+                onclick="sendRSVP()"
+            >
+                💚 RSVP VIA WHATSAPP
+            </button>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL
+========================================================= -->
+
+<section class="final">
+
+    <div class="container reveal">
+
+        <div>
+
+            <div style="font-size:45px;margin-bottom:25px;">
+                🎂 ✨ 🎀
+            </div>
+
+
+            <h2>
+                See You
+            </h2>
+
+
+            <div class="final-script">
+                at my Sweet Seventeen ♡
+            </div>
+
+
+            <p>
+                WITH LOVE, BEYBY
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    MADE WITH ♡ FOR BEYBY'S 17TH BIRTHDAY
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+const audio =
+    document.getElementById("audio");
+
+const musicBtn =
+    document.getElementById("musicBtn");
+
+let musicPlaying = false;
+
+
+function openInvitation(){
+
+    const opening =
+        document.getElementById("opening");
+
+    opening.classList.add("hide");
+
+
+    audio.volume = 0.35;
+
+
+    audio.play()
+        .then(() => {
+
+            musicPlaying = true;
+
+            musicBtn.innerHTML = "🎵";
+
+        })
+        .catch(() => {
+
+            musicPlaying = false;
+
+        });
+
+
+    createConfetti();
+
+
+    setTimeout(() => {
+
+        createHearts();
+
+    },800);
+
+}
+
+
+function toggleMusic(){
+
+    if(audio.paused){
+
+        audio.play();
+
+        musicPlaying = true;
+
+        musicBtn.innerHTML = "🎵";
+
+    }
+
+    else{
+
+        audio.pause();
+
+        musicPlaying = false;
+
+        musicBtn.innerHTML = "🔇";
+
+    }
+
+}
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+const target =
+    new Date(
+        "October 31, 2026 19:00:00"
+    ).getTime();
+
+
+function updateCountdown(){
+
+    const now =
+        new Date().getTime();
+
+    const distance =
+        target - now;
+
+
+    if(distance <= 0){
+
+        document.getElementById("days").innerText = "00";
+
+        document.getElementById("hours").innerText = "00";
+
+        document.getElementById("minutes").innerText = "00";
+
+        document.getElementById("seconds").innerText = "00";
+
+        return;
+
+    }
+
+
+    const days =
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60 * 24))
+            /
+            (1000 * 60 * 60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60))
+            /
+            (1000 * 60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (distance %
+            (1000 * 60))
+            /
+            1000
+        );
+
+
+    document.getElementById("days").innerText =
+        String(days).padStart(2,"0");
+
+
+    document.getElementById("hours").innerText =
+        String(hours).padStart(2,"0");
+
+
+    document.getElementById("minutes").innerText =
+        String(minutes).padStart(2,"0");
+
+
+    document.getElementById("seconds").innerText =
+        String(seconds).padStart(2,"0");
+
+}
+
+
+updateCountdown();
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const reveals =
+    document.querySelectorAll(".reveal");
+
+
+function revealOnScroll(){
+
+    reveals.forEach(element => {
+
+        const windowHeight =
+            window.innerHeight;
+
+        const elementTop =
+            element.getBoundingClientRect().top;
+
+
+        if(elementTop <
+            windowHeight - 80){
+
+            element.classList.add("active");
+
+        }
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    revealOnScroll
+);
+
+revealOnScroll();
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+function createHearts(){
+
+    const symbols = [
+        "♡",
+        "♥",
+        "💗",
+        "💕",
+        "✨",
+        "🎀"
+    ];
+
+
+    setInterval(() => {
+
+        const heart =
+            document.createElement("div");
+
+
+        heart.className =
+            "floating-heart";
+
+
+        heart.innerHTML =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+
+        heart.style.bottom =
+            "-30px";
+
+
+        heart.style.fontSize =
+            (12 +
+            Math.random() * 20)
+            + "px";
+
+
+        heart.style.animationDuration =
+            (4 +
+            Math.random() * 4)
+            + "s";
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        setTimeout(() => {
+
+            heart.remove();
+
+        },8000);
+
+
+    },900);
+
+}
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+function createConfetti(){
+
+    const symbols = [
+        "✦",
+        "♡",
+        "•",
+        "✧",
+        "🎀"
+    ];
+
+
+    for(let i=0;i<70;i++){
+
+        const piece =
+            document.createElement("div");
+
+
+        piece.className =
+            "confetti";
+
+
+        piece.innerHTML =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+
+        piece.style.left =
+            Math.random() * 100 +
+            "vw";
+
+
+        piece.style.top =
+            "-20px";
+
+
+        piece.style.fontSize =
+            (10 +
+            Math.random() * 15)
+            + "px";
+
+
+        piece.style.animationDelay =
+            Math.random() * 1.5 +
+            "s";
+
+
+        piece.style.animationDuration =
+            (2 +
+            Math.random() * 2)
+            + "s";
+
+
+        document.body.appendChild(
+            piece
+        );
+
+
+        setTimeout(() => {
+
+            piece.remove();
+
+        },5000);
+
+    }
+
+}
+
+
+/* =========================================================
+   RSVP WHATSAPP
+========================================================= */
+
+function sendRSVP(){
+
+    const name =
+        document
+        .getElementById("guestName")
+        .value
+        .trim();
+
+
+    const whatsappNumber =
+        "6288274281511";
+
+
+    if(name === ""){
+
+        alert(
+            "Please enter your name first ♡"
+        );
+
+        return;
+
+    }
+
+
+    const message =
+
+        `Hello Beyby! ♡%0A%0A` +
+
+        `I'm ${name} and I'd love to attend your Sweet Seventeen! 🎂✨%0A%0A` +
+
+        `See you on October 31st, 2026! 🎀`;
+
+
+    const url =
+        `https://wa.me/${whatsappNumber}?text=${message}`;
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+/* =========================================================
+   CLICK SPARKLE
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(e){
+
+        const sparkle =
+            document.createElement("div");
+
+
+        sparkle.innerHTML =
+            "✦";
+
+
+        sparkle.style.position =
+            "fixed";
+
+
+        sparkle.style.left =
+            e.clientX + "px";
+
+
+        sparkle.style.top =
+            e.clientY + "px";
+
+
+        sparkle.style.pointerEvents =
+            "none";
+
+
+        sparkle.style.zIndex =
+            "10000";
+
+
+        sparkle.style.color =
+            "#e66b9c";
+
+
+        sparkle.style.fontSize =
+            "20px";
+
+
+        sparkle.style.transition =
+            "1s ease";
+
+
+        document.body.appendChild(
+            sparkle
+        );
+
+
+        setTimeout(() => {
+
+            sparkle.style.transform =
+                "translateY(-35px) scale(1.5)";
+
+            sparkle.style.opacity =
+                "0";
+
+        },20);
+
+
+        setTimeout(() => {
+
+            sparkle.remove();
+
+        },1000);
+
+    }
+);
+
+</script>
+
+</body>
+</html>
